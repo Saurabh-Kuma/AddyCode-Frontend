@@ -1,0 +1,142 @@
+<div class="bg-image">
+    <div class="row header" [ngClass]="{'solid': isScrolled}" >
+        <div class="col-md-2 tagline" data-aos="fade-right" data-aos-delay="200">
+            <label>AddyCode</label>
+        </div>
+    </div>
+
+    <div class="row info5">
+        <div class="col-md-6 mt-5 mb-4">
+            <h1 class="heading-info" data-aos="fade-right" data-aos-delay="200">
+                We develop digital marketing solutions that accelerate growth.
+            </h1>
+            <hr class="line-sm"/>
+            <label class="info-detail" data-aos="fade-right" data-aos-delay="200">
+                Search is in our DNA, and it always will be. But to drive true business growth we look at the bigger omnichannel picture.
+            </label>
+            <input class="btn btn-contactUsScroll mt-4" type="button" (click)="scrollToContact()" value="Contact Us">
+        </div>
+        <div class="col-md-6">
+            <div class="img-div">
+                <img class="handle-img" src="/images/digitalMarketing.jpg" alt="digital Marketing pic"/>
+            </div>
+        </div>
+    </div> 
+    
+    <div class="row info1 text-center">
+        <div class="col-md-6 mx-auto">
+            <label class="heading-sm-info">WORK</label><br/>
+            <label class="heading-info" data-aos="fade-right" data-aos-delay="200">
+                We’re creating a new paradigm for digital marketing.
+            </label>
+            <hr class="line-sm"/>
+            <label class="info-detail" data-aos="fade-right" data-aos-delay="200">
+                Creativity and data-driven strategies are seamlessly integrated, empowering marketers to earn meaningful attention, balance short and long-term goals and maximize efforts in today’s ever-changing business landscape.
+            </label>
+        </div>
+    </div> 
+
+    <div class="info5 text-center">
+        <div>
+            <h5 class="heading-sm-info white-text">SERVICES</h5>
+            <h2 class="heading-info" data-aos="fade-right" data-aos-delay="200">Elevate Your Brand with Our Digital Marketing and Website Building Services</h2>
+            <hr class="line-sm"/>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="service-img">
+                    <img class="handle-img" src="/images/social media.jpg" alt="social media"/>
+                </div>
+                <div>
+                    <h2 class="heading-info" data-aos="fade-right" data-aos-delay="200">Digital Marketing</h2>
+                    <label class="info-detail" data-aos="fade-right" data-aos-delay="200">
+                        Maximize your brand's reach and connect with your audience through targeted digital marketing strategies. Our team specializes in creating impactful campaigns that drive engagement, boost traffic, and accelerate growth.
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="service-img">
+                    <img  class="handle-img" src="/images/coding.svg" alt="coding"/>
+                </div>
+                <div>
+                    <h2 class="heading-info" data-aos="fade-left" data-aos-delay="200">Website Building</h2>
+                    <label class="info-detail" data-aos="fade-left" data-aos-delay="200">
+                        Transform your online presence with a professional, responsive website tailored to your needs. We design sites that not only look great but also convert visitors into loyal customers, delivering a seamless experience across all devices.
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row info4 text-center">
+        <div class="col-md-6 mx-auto">
+            <label class="heading-sm-info">DELIVERY MODEL</label><br/>
+            <label data-aos="fade-right" data-aos-delay="200" class="heading-info white-text">
+                End-to-end digital marketing solutions.
+            </label>
+            <hr class="line-sm"/>
+            <label class="info-detail white-text" data-aos="fade-right" data-aos-delay="200" >
+                Our creative capabilities differentiate our work, throughout the funnel, across platforms, devices and digital marketing channels.
+            </label>
+        </div>
+    </div>
+
+    
+
+
+  <div class="contactUsPerentdiv" id="contact-us">
+    <form>
+      <!-- <div> -->
+        <div class="row" >
+            <div class="col-md-6 card shadow-lg mt-4 mx-auto contactUsdiv" *ngIf="submitted">
+                
+                    <label class="form-label text-center headingFont-1">Contact US</label>
+                    <label class='form-label' for="Name">Name: </label>
+                    <input class='form-control' type="text" name="name" [(ngModel)]="userName" (input)="showName()" id="" placeholder="name" /><br />
+                    <label class='form-label' for="email">email: </label>
+                    <input class='form-control' type="email" [(ngModel)]="email" name="email" id="" placeholder="email" /><br />
+                    <label class='form-label' for="contact No.">Contact No.: </label>
+                    <input class='form-control' type="tel" [(ngModel)]="telNo" name="contactNo" id="" placeholder="mobile no." /><br />
+                    <label class='form-label' for="Message">Message: </label>
+                    <textarea class='form-control mb-5' name="message" [(ngModel)]="message" id="" placeholder="type any message..."></textarea>
+                    <p class="text-danger text-center">{{warning}}</p>
+                    <input class="btn btn-submit" type="button" (click)="onSubmit()" value="submit">
+                
+            </div>
+            <div class="col-md-6 card shadow-lg mt-4 mx-auto contactUsdiv" *ngIf="!submitted">
+                <p class="text-center">Detail Submitted Successfully! You will be contacted soon via email or phone.</p>
+            </div>
+        </div>
+      <!-- </div> -->
+    </form>
+  </div>
+
+  <div class="row testimonial-container info5 text-center">
+    <h5 class="heading-sm-info white-text">TESTIMONIALS</h5>
+    <label class="heading-info mb-3" data-aos="fade-right" data-aos-delay="200">
+        Our Client Matters to Us!
+    </label>
+    <div class="row info1 bg-black shadow">
+        <button class="btn btn-nextPriv col-md-1" (click)="prevTestimonials()"><</button>
+        <div class="testimonial col-md-5" *ngFor="let testimonial of visibleTestimonials">
+            <p class="info-detail white-text">{{ testimonial.testimonial }}</p>
+            <h6 class="info-detail orange-text">Service availed: {{ testimonial.service }}</h6>
+            <h4 class="info-detail orange-text">- {{ testimonial.name }}</h4>
+        </div>
+        <button class="btn btn-nextPriv col-md-1" (click)="nextTestimonials()">></button>
+    </div>
+    
+    
+  </div>
+  
+  
+
+  <div class="row info4 text-center">
+    <footer>
+        <p class="info-detail white-text">&#169; 2023 Copyright. All Rights Reserved to AddyCode.</p>
+        <P class="white-text">This website is developed by Saurabh Kumar(AddyCode)</P>
+    </footer>
+  </div>
+
+
+</div>
