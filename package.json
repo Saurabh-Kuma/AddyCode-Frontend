@@ -1,13 +1,15 @@
 {
   "name": "portfolio-frontend",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "ng": "ng",
     "start": "ts-node server.ts",
     "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:portfolio-frontend": "node dist/portfolio-frontend/server/server.mjs"
+    "serve:ssr:portfolio-frontend": "node dist/portfolio-frontend/server/server.mjs",
+    "postinstall": "ng build --configuration production"
   },
   "private": true,
   "dependencies": {
