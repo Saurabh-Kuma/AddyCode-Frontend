@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit{
   warning: string="" 
   detail:any
   submitted: boolean= true
-  url:string="http://localhost:3000/contact"
+  url:string="https://addycode-backend-production.up.railway.app/contact"
   isScrolled:boolean= false
   constructor(private http: HttpClient){}
 
