@@ -129,8 +129,8 @@ export class HomeComponent implements OnInit{
   //   this.interval = setInterval(() => {
   //     this.nextTestimonials();
   //   }, 3000); // 3 seconds interval
-  // }
-
+  // } 
+ 
   // ngOnDestroy(): void {
   //   clearInterval(this.interval);
   // }
