@@ -1,6 +1,6 @@
 import { CommonModule} from '@angular/common';
 import { HttpClient, HttpClientModule} from '@angular/common/http';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import AOS from 'aos'
 @Component({
@@ -14,7 +14,7 @@ import AOS from 'aos'
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent{
   userName:any=""
   email:string=""
   telNo:string= ""
@@ -126,13 +126,18 @@ export class HomeComponent implements OnInit{
   }
 
   // startAutoSlide() {
+  //   if (this.interval) {
+  //     clearInterval(this.interval); // Clear any existing interval
+  //   }
   //   this.interval = setInterval(() => {
   //     this.nextTestimonials();
   //   }, 3000); // 3 seconds interval
   // } 
  
   // ngOnDestroy(): void {
-  //   clearInterval(this.interval);
-  // }
+  //   if (this.interval) {
+  //     clearInterval(this.interval);
+  //   }  
+  // } 
 
 }
