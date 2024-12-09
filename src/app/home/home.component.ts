@@ -31,11 +31,6 @@ export class HomeComponent{
     this.isScrolled= scrollY > 100;
   } 
 
-  showName(){
-    // this.message= this.userName
-    // console.log(this.userName)
-  }
-
   ngAfterViewInit(){
     if (typeof window !== 'undefined'){
       AOS.init()
@@ -50,16 +45,15 @@ export class HomeComponent{
       telNo: this.telNo,
       message: this.message
     }
-
-    this.http.post<any>(this.url, this.detail).subscribe(res=>{
+    console.log(this.detail)
+    // this.http.post<any>(this.url, this.detail).subscribe(res=>{
       
-      this.submitted= false 
-      console.log(res.message)
-    }, error=> {
-      this.warning= error.message
-      console.log(error)
-    })
-    // console.log(this.detail)
+    //   this.submitted= false 
+    //   console.log(res.message)
+    // }, error=> {
+    //   this.warning= error.message
+    //   console.log(error)
+    // })
   }
 
   scrollToContact() {
