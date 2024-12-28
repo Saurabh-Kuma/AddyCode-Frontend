@@ -46,14 +46,14 @@ export class HomeComponent{
       message: this.message
     }
     console.log(this.detail)
-    // this.http.post<any>(this.url, this.detail).subscribe(res=>{
+    this.http.post<any>(this.url, this.detail).subscribe(res=>{
       
-    //   this.submitted= false 
-    //   console.log(res.message)
-    // }, error=> {
-    //   this.warning= error.message
-    //   console.log(error)
-    // })
+      this.submitted= false 
+      console.log(res.message)
+    }, error=> {
+      this.warning= error.message
+      console.log(error)
+    })
   }
 
   scrollToContact() {
