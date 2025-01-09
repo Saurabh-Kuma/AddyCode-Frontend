@@ -121,7 +121,7 @@
                     <label class='form-label' for="Message">Message: </label>
                     <textarea class='form-control mb-5' name="message" [(ngModel)]="message" id="" placeholder="type any message..."></textarea>
                     <p class="text-danger text-center">{{warning}}</p>
-                    <input class="btn btn-submit" type="button" (click)="onSubmit()" value="submit">
+                    <input class="btn btn-submit" type="button" #submitBtn (click)="onSubmit()" value="submit">
                 
             </div>
             <div class="col-md-7 card shadow-lg mt-4 mx-auto contactUsdiv sent-success" *ngIf="!submitted">

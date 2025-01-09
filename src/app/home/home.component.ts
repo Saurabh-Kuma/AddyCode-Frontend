@@ -1,6 +1,6 @@
 import { CommonModule} from '@angular/common';
 import { HttpClient, HttpClientModule} from '@angular/common/http';
-import { Component, HostListener} from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import AOS from 'aos'
 @Component({
@@ -38,7 +38,13 @@ export class HomeComponent{
     
   }
 
+
+  @ViewChild("submitBtn") 
+  buttonRef!: ElementRef<HTMLInputElement>
+
   onSubmit(){
+    this.buttonRef.nativeElement.disabled= true
+    this.buttonRef.nativeElement.value = 'Processing...';
     this.detail={
       userName: this.userName,
       email: this.email,
@@ -46,8 +52,8 @@ export class HomeComponent{
       message: this.message
     }
     console.log(this.detail)
+
     this.http.post<any>(this.url, this.detail).subscribe(res=>{
-      
       this.submitted= false 
       console.log(res.message)
     }, error=> {
