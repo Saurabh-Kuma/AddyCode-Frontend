@@ -1,7 +1,7 @@
 import { CommonModule} from '@angular/common';
 import { HttpClient, HttpClientModule} from '@angular/common/http';
 import { Component, ElementRef, HostListener, ViewChild} from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Form, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import AOS from 'aos'
 @Component({
   selector: 'app-home',
@@ -9,13 +9,14 @@ import AOS from 'aos'
   imports: [
     FormsModule,
     CommonModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent{
-  newBranch:any=""
+  contactUsForm!: FormGroup;
   userName:any=""
   email:string=""
   telNo:string= ""
@@ -25,7 +26,14 @@ export class HomeComponent{
   submitted: boolean= true
   url:string="https://addycode-backend-production.up.railway.app/contact"
   isScrolled:boolean= false
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient, private fb: FormBuilder){
+    this.contactUsForm= this.fb.group({
+      userName: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+      telNo: ['', [Validators.required, Validators.minLength(10), Validators.pattern('^[0-9]*$')]],
+      message: ['', [Validators.required, Validators.minLength(5)]]
+    })
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll(){
@@ -47,10 +55,10 @@ export class HomeComponent{
     this.buttonRef.nativeElement.disabled= true
     this.buttonRef.nativeElement.value = 'Processing...';
     this.detail={
-      userName: this.userName,
-      email: this.email,
-      telNo: this.telNo,
-      message: this.message
+      userName: this.contactUsForm.value.userName,
+      email: this.contactUsForm.value.email,
+      telNo: this.contactUsForm.value.telNo,
+      message: this.contactUsForm.value.message
     }
     console.log(this.detail)
 

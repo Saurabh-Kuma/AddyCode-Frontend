@@ -107,21 +107,33 @@
 
 
   <div class="contactUsPerentdiv" id="contact-us">
-    <form>
+    <form [formGroup]="contactUsForm" (ngSubmit)="onSubmit()">
         <div class="row" >
             <div class="col-lg-7 card shadow-lg mt-4 mx-auto contactUsdiv" *ngIf="submitted">
                 
                     <label class="form-label text-center headingFont-1">Contact US</label>
                     <label class='form-label' for="Name">Name: </label>
-                    <input class='form-control' type="text" name="name" [(ngModel)]="userName" id="" placeholder="name" required/><br />
+                    <input class='form-control' type="text" name="name" formControlName="userName" id="" placeholder="name" required/>
+                    <div *ngIf="contactUsForm.get('userName')?.invalid && contactUsForm.get('userName')?.touched" class="text-danger">
+                        *valid name is required
+                    </div><br />
                     <label class='form-label' for="email">email: </label>
-                    <input class='form-control' type="email" [(ngModel)]="email" name="email" id="" placeholder="email" /><br />
+                    <input class='form-control' type="email" formControlName="email" name="email" id="" placeholder="email" />
+                    <div *ngIf="contactUsForm.get('email')?.invalid && contactUsForm.get('email')?.touched" class="text-danger">
+                        *valid email is required
+                    </div><br />
                     <label class='form-label' for="contact No.">Contact No.: </label>
-                    <input class='form-control' type="tel" [(ngModel)]="telNo" name="contactNo" id="" placeholder="mobile no." /><br />
+                    <input class='form-control' type="tel" formControlName="telNo" name="contactNo" id="" placeholder="mobile no." />
+                    <div *ngIf="contactUsForm.get('telNo')?.invalid && contactUsForm.get('telNo')?.touched" class="text-danger">
+                        *valid mobile no. is required
+                    </div><br />
                     <label class='form-label' for="Message">Message: </label>
-                    <textarea class='form-control mb-5' name="message" [(ngModel)]="message" id="" placeholder="type any message..."></textarea>
+                    <textarea class='form-control' name="message" formControlName="message" id="" placeholder="type any message..."></textarea>
+                    <div *ngIf="contactUsForm.get('message')?.invalid && contactUsForm.get('message')?.touched" class="text-danger">
+                        *valid message is required
+                    </div><br />
                     <p class="text-danger text-center">{{warning}}</p>
-                    <input class="btn btn-submit" type="button" #submitBtn (click)="onSubmit()" value="submit">
+                    <input class="btn btn-submit" type="submit" #submitBtn [disabled]="contactUsForm.invalid" value="submit">
                 
             </div>
             <div class="col-md-7 card shadow-lg mt-4 mx-auto contactUsdiv sent-success" *ngIf="!submitted">
