@@ -24,7 +24,7 @@ export class HomeComponent{
   warning: string="" 
   detail:any
   submitted: boolean= true
-  url:string="https://addycode-backend-production.up.railway.app/contact"
+  url:string="https://addycode-backend-1017545520554.us-central1.run.app/contact"
   isScrolled:boolean= false
   constructor(private http: HttpClient, private fb: FormBuilder){
     this.contactUsForm= this.fb.group({

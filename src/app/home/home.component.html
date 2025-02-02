@@ -130,7 +130,7 @@
                     <label class='form-label' for="Message">Message: </label>
                     <textarea class='form-control' name="message" formControlName="message" id="" placeholder="type any message..."></textarea>
                     <div *ngIf="contactUsForm.get('message')?.invalid && contactUsForm.get('message')?.touched" class="text-danger">
-                        *valid message is required
+                        *minimum 5 characters are required
                     </div><br />
                     <p class="text-danger text-center">{{warning}}</p>
                     <input class="btn btn-submit" type="submit" #submitBtn [disabled]="contactUsForm.invalid" value="submit">
