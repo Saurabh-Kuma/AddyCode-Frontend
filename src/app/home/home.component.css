@@ -70,9 +70,22 @@
   color: rgba(41, 41, 41, 0.9);
 }
 
+.heading-info-sm {
+  font-weight: 900;
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  color: rgba(41, 41, 41, 0.9);
+}
+
 .info-detail {
   font-weight:530;
   font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-stretch: extra-expanded;
+  color: rgba(41, 41, 41, 0.9);
+}
+
+.info-detail-sm {
+  font-weight:430;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
   font-stretch: extra-expanded;
   color: rgba(41, 41, 41, 0.9);
 }
